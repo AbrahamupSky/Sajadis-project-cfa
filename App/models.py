@@ -2,6 +2,7 @@ from django.db import models
 
 class Record(models.Model):
   QUANTITYS = (
+    ('----------', '----------'),
     ('1', '1'),
     ('2', '2'),
     ('3', '3'),
