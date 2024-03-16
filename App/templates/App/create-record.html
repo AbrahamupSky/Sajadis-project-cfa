@@ -1,1 +1,38 @@
-{% extends 'App/base.html' %}
+{% extends 'App/base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<body>
+  <div
+    class="container bg-dark shadow-md p-3 mt-3 rounded-3"
+    style="width: 500px"
+  >
+    <h3>Create new Record</h3>
+    <h5>Start adding new records</h5>
+    <hr />
+
+    <form method="POST">
+      {% csrf_token %} 
+
+      {{ form.Large_Fruit|as_crispy_field }}
+      {{ form.Medium_Fruit|as_crispy_field }}
+      {{ form.Small_Fruit|as_crispy_field }}
+      {{ form.Parfait|as_crispy_field }}
+      {{ form.Grilled_Wrap|as_crispy_field }}
+      {{ form.Spicy_Wrap|as_crispy_field }}
+      {{ form.Kale_Salad|as_crispy_field }}
+      {{ form.Market_Salad|as_crispy_field }}
+      {{ form.Southwest_Salad|as_crispy_field }}
+      {{ form.Cobb_Salad|as_crispy_field }}
+      {{ form.Side_Salad|as_crispy_field }}
+      
+      <br />
+
+      <button type="submit" class="btn btn-primary btn-clock w-100 p-2">
+        Save
+      </button>
+    </form>
+
+    <br />
+  </div>
+</body>
+
+{% endblock content %}

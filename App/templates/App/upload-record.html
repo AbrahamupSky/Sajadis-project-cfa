@@ -4,10 +4,7 @@
   <div class="container bg-dark shadow-md p-3 mt-3 rounded-3">
     <div class="row">
       <div class="col">
-        <h2>Dashboard</h2>
-      </div>
-      <div class="col text-end">
-        <a href="#" class="btn btn-outline-primary btn-sm">Create new record</a>
+        <h3>Record of {{ record.date }}</h3>
       </div>
     </div>
     <hr>
@@ -65,7 +62,7 @@
           </tr>
           <tr>
             <td>Southwest Salad</td>
-            <td class="text-center">{{ record.Southwaest_Salad }}</td>
+            <td class="text-center">{{ record.Southwest_Salad }}</td>
             <td class="text-center"><input class="form-check-input form-check-lg" type="checkbox" name="completed_products" value="{{ record.id }}"></td>
           </tr>
           <tr>

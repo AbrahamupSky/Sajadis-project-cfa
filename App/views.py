@@ -2,7 +2,7 @@ from .models import Record
 from django.http import HttpResponse
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
-from .forms import CreateUserForm, LoginForm
+from .forms import CreateUserForm, LoginForm, AddRecordForm, UpdateRecordForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -75,3 +75,17 @@ def mark_completed(request):
       product.done = True
       product.save()
   return redirect('dashboard')
+
+@login_required(login_url='login')
+def create_record(request):
+  form = AddRecordForm()
+
+  if request.method == 'POST':
+    form = AddRecordForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect('dashboard')
+    
+  context = {'form': form}
+
+  return render(request, 'App/create-record.html', context=context)

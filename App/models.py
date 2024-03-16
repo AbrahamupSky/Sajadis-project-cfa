@@ -1,7 +1,6 @@
 from django.db import models
 
 class Record(models.Model):
-  
   QUANTITYS = (
     ('1', '1'),
     ('2', '2'),
@@ -33,7 +32,7 @@ class Record(models.Model):
   Spicy_Wrap = models.CharField(max_length=20, choices=QUANTITYS)
   Kale_Salad = models.CharField(max_length=20, choices=QUANTITYS)
   Market_Salad = models.CharField(max_length=20, choices=QUANTITYS)
-  Southwaest_Salad = models.CharField(max_length=20, choices=QUANTITYS)
+  Southwest_Salad = models.CharField(max_length=20, choices=QUANTITYS)
   Cobb_Salad = models.CharField(max_length=20, choices=QUANTITYS)
   Side_Salad = models.CharField(max_length=20, choices=QUANTITYS)
 
