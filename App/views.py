@@ -1,3 +1,4 @@
+from .models import Record
 from django.http import HttpResponse
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
@@ -51,4 +52,26 @@ def logout(request):
 # ? Dashboard
 @login_required(login_url='login')
 def dashboard(request):
-  return render(request, 'App/dashboard.html')
+  my_records = Record.objects.all()
+  context = {'records': my_records}
+
+  return render(request, 'App/dashboard.html', context=context)
+
+# ? Individual Record
+@login_required(login_url='login')
+def upload_record(request, record_id):
+  # Lógica para obtener y mostrar el registro con el ID dado
+  record = Record.objects.get(id=record_id)
+  context = {'record': record}
+
+  return render(request, 'App/upload-record.html', context=context)
+
+def mark_completed(request):
+  if request.method == 'POST':
+    completed_products_ids = request.POST.getlist('completed_products')
+    # Marcar los productos como completados en la base de datos
+    for product_id in completed_products_ids:
+      product = Record.objects.get(id=product_id)
+      product.done = True
+      product.save()
+  return redirect('dashboard')
