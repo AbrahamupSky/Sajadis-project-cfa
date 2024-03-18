@@ -1,5 +1,6 @@
 from django import forms
 from .models import Record
+from django.forms import TypedChoiceField
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
